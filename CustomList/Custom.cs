@@ -47,39 +47,62 @@ namespace CustomList
             counter++;
         }
 
+        //public bool Remove(T value)
+        //{
+        //    int valueinstance = -1;
+        //    for (int i = 0; i < counter; i++)
+        //    {
+        //        if (items[i].Equals(value))
+        //        {
+        //            valueinstance = i;
+        //        }
+        //    }
+        //    if(valueinstance == -1)
+        //    {
+        //        return false;
+        //    }
+        //    T[] newitems = new T[counter - 1];
+        //    bool found = false;
+        //    for (int j = 0; j < counter; j++)
+        //        {
+        //            if (j == valueinstance)
+        //            {
+        //                found = true;
+        //                continue;
+        //            }
+        //        if (found)
+        //        {
+        //            newitems[j - 1] = items[j];
+        //        }
+        //        else
+        //        {
+        //            newitems[j] = items[j];
+        //        }
+
+        //        }
+        //    counter--;
+        //    items = newitems;
+        //    return true;
+        //}
+
         public bool Remove(T value)
         {
+            T[] newitems = new T[counter - 1];
             int valueinstance = -1;
+            int j = 0;
             for (int i = 0; i < counter; i++)
             {
                 if (items[i].Equals(value))
                 {
                     valueinstance = i;
                 }
+                else if (!items[i].Equals(value))
+                {
+                    newitems[j] = items[i];
+                    j++;
+                }
             }
-            if(valueinstance == -1)
-            {
-                return false;
-            }
-            T[] newitems = new T[counter - 1];
-            bool found = false;
-            for (int j = 0; j < counter; j++)
-                {
-                    if (j == valueinstance)
-                    {
-                        found = true;
-                        continue;
-                    }
-                if (found)
-                {
-                    newitems[j - 1] = items[j];
-                }
-                    else
-                {
-                    newitems[j] = items[j];
-                }
-
-                }
+            items = newitems;
             counter--;
             return true;
         }
@@ -87,9 +110,9 @@ namespace CustomList
         public override string ToString()
         {
             string result =  "";
-            foreach(T i in items)
+            foreach(T item in items)
             {
-                result += items.ToString() + " , ";
+                result += item.ToString() + " ";
             }
             return result;  
         }
@@ -111,13 +134,35 @@ namespace CustomList
         public static CustomList<T> operator -(CustomList<T> List1, CustomList<T> List2)
         {
             CustomList<T> TempList = new CustomList<T>();
-            for (int i = 0; i < List1.Count; i++)
+            //for (int i = 0; i < List1.Count; i++)
+            //{
+            //    TempList.Remove(List1[i]);
+            //}
+            //for (int j = 0; j < List2.Count; j++)
+            //{
+            //    TempList.Remove(List2[j]);
+            //}
+            //return TempList;
+            if(List1.Count > List2.Count)
             {
-                TempList.Remove(List1 [i]);
+                for (int i = 0; i < List1.Count; i++)
+                {
+                    TempList.Remove(List1[i]);
+                }
             }
-            for (int j = 0; j < List2.Count; j++)
+            else if(List1.Count < List2.Count)
             {
-                TempList.Remove(List2 [j]);
+                for (int i = 0; i < List2.Count; i++)
+                {
+                    TempList.Remove(List2[i]);
+                }
+            }
+            else
+            {
+                for(int i = 0; i < List1.Count; i++)
+                {
+                    TempList.Remove(List1[i]);
+                }
             }
             return TempList;
         }
