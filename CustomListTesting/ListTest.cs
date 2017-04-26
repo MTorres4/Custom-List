@@ -191,11 +191,11 @@ namespace CustomListTesting
         {
             CustomList<string> Custom = new CustomList<string>() {"Bunny" , "Squirrel"};
             //Arrange
-            
+            string expected = "Bunny Squirrel";
             //Act
             Custom.ToString();
             //Assert
-            //Assert.IsTrue(expected);
+            Assert.AreEqual(expected, Custom[0]);
         }
 
         [TestMethod]
@@ -260,13 +260,15 @@ namespace CustomListTesting
         //Confirm placement of zipped items
         public void Zipping_ZippingString_ZippingAtIndex0()
         {
-            CustomList<string> Custom = new CustomList<string>() {"Bunny", "Moose" };
+            CustomList<string> Custom3 = new CustomList<string>();
+            CustomList<string> Custom1 = new CustomList<string>() {"Bunny", "Moose", "Bear"};
+            CustomList<string> Custom2 = new CustomList<string>() { "Hawk", "Fox" };
             //Arrange
-            bool expected = true;
+            string expected = "Moose";
             //Act
-            //Custom.ZipThroughList(value1, value2);
+            Custom3 = Custom1.Zip(Custom1, Custom2);
             //Assert
-            Assert.IsTrue(expected);
+            Assert.AreEqual(expected, Custom3[2]);
         }
 
         [TestMethod]
@@ -274,12 +276,14 @@ namespace CustomListTesting
         public void Zipping_ZippingInt_ZippingAtIndex0()
         {
             CustomList<int> Custom = new CustomList<int>();
+            CustomList<int> Custom1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> Custom2 = new CustomList<int>() { 4, 5};
             //Arrange
-            bool expected = true;
+            int expected = 4;
             //Act
-            //Custom.ZipThroughList(value1, value2);
+            Custom = Custom1.Zip(Custom1, Custom2);
             //Assert
-            Assert.IsTrue(expected);
+            Assert.AreEqual(expected, Custom[1]);
         }
 
         [TestMethod]

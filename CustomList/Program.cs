@@ -25,8 +25,8 @@ namespace CustomList
             //Console.WriteLine(myIntList = List1 - List2);
 
             //CustomList<string> myStringList = new CustomList<string>();
-            //CustomList<string> List1 = new CustomList<string> { "A", "B", "C"};
-            //CustomList<string> List2 = new CustomList<string> { "D", "E"};
+            //CustomList<string> List1 = new CustomList<string> { "A", "B", "C" };
+            //CustomList<string> List2 = new CustomList<string> { "D", "E" };
             //myStringList.Zip(List1, List2);
 
             //CustomList<int> myIntList = new CustomList<int>();
@@ -43,15 +43,15 @@ namespace CustomList
             //myIntList.ZipThroughList();
             //CustomList<int> List1 = new CustomList<int>
 
-            CustomList<string> myStringList = new CustomList<string>();
-            myStringList.Add("Dog");
-            myStringList.Add("Bunny");
-            myStringList.Add("Bird");
-            myStringList.Remove("Bunny");
-            Console.WriteLine(myStringList);
-            Console.ReadLine();
-            //myStringList.IterateList();
-            myStringList.ToString();
+            //CustomList<string> myStringList = new CustomList<string>();
+            //myStringList.Add("Dog");
+            //myStringList.Add("Bunny");
+            //myStringList.Add("Bird");
+            //myStringList.Remove("Bunny");
+            //Console.WriteLine(myStringList);
+            //Console.ReadLine();
+            ////myStringList.IterateList();
+            //myStringList.ToString();
             //myStringList.operator +(new CustomList<string>() { "Bunny"});
             //myStringList.OverloadRemove();
             //myStringList.Count();
